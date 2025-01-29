@@ -16,7 +16,7 @@ start-api:
 
 # FastAPI version
 start-fastapi:
-	python rest/run_fastapi.py -p $${DTC_REST_PORT}
+	PYTHONPATH=. python rest/run_fastapi.py
 
 # Install dependencies
 install:
