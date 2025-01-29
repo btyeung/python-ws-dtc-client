@@ -3,17 +3,25 @@ import requests
 import time
 import threading
 import logging
-from dtc_client.dtc_client import DTCClient
+from unittest.mock import MagicMock
 from rest.rest_server import RESTServer
 from rest.api import API
 
 TEST_PORT = 8081
 BASE_URL = f"http://localhost:{TEST_PORT}{API.API_PREFIX}"
 
+class MockDTCClient:
+    def __init__(self, handler):
+        self.rest_server = None
+        
+    def request_response(self, request_id, request):
+        # Return empty list for all requests in test
+        return []
+
 @pytest.fixture(scope="session")
 def server():
-    # Initialize a minimal DTC client just for testing
-    client = DTCClient(lambda x: None)
+    # Use mock DTC client for testing
+    client = MockDTCClient(lambda x: None)
     server = RESTServer()
     
     # Start server in a separate thread

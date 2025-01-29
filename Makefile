@@ -24,4 +24,4 @@ install:
 
 # Run tests (installs dependencies first)
 test: install
-	pytest tests/test_flaskapi_server.py -v
+	PYTHONPATH=. pytest tests/test_flaskapi_server.py -v
