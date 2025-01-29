@@ -1,3 +1,4 @@
+# Server dependencies
 websocket-client
 flask
 Flask-Sockets
@@ -5,3 +6,10 @@ gevent-websocket
 fastapi
 uvicorn[standard]
 websockets
+
+# Testing dependencies
+pytest
+pytest-asyncio
+requests
+httpx
+pytest-cov
