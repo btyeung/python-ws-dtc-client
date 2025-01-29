@@ -1,9 +1,9 @@
 include .env
 export
 
-.PHONY: start-api install
+.PHONY: start-api start-fastapi install
 
-# run this if you're not using authentication locally and to use sim mode.
+# Default Flask version
 start-api:
 	python example_client.py \
 		-n $${DTC_HOST} \
@@ -13,6 +13,10 @@ start-api:
 		-s
 #		-u $${DTC_USERNAME} \
 #		-x $${DTC_PASSWORD}
+
+# FastAPI version
+start-fastapi:
+	PYTHONPATH=. python -c "from rest.fastapi_server import RESTServer; RESTServer().start(None, $${DTC_REST_PORT})"
 
 install:
 	pip install -r requirements.txt

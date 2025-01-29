@@ -2,3 +2,6 @@ websocket-client
 flask
 Flask-Sockets
 gevent-websocket
+fastapi
+uvicorn[standard]
+websockets
