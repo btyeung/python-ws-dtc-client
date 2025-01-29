@@ -15,8 +15,8 @@ _ID = 'ID'
 if __name__ == '__main__':
     # Symbols to monitor
     SYMBOL_LIST = [
-        {_NAME: "ESM20_FUT_CME"},
-        {_NAME: "CLM20_FUT_NYMEX"}
+        {_NAME: "ESH25_FUT_CME"},
+        {_NAME: "CLG25_FUT_NYMEX"}
     ]
     # Generate symbol IDs
     for ix, symbol in enumerate(SYMBOL_LIST):

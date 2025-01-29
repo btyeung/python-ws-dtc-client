@@ -1,0 +1,4 @@
+websocket-client
+flask
+Flask-Sockets
+gevent-websocket
