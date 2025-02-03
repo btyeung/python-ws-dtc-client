@@ -5,6 +5,7 @@ from dtc_client.dtc_client import DTCClient
 from dtc.message_types.market_data_request import MarketDataRequest
 from dtc.enums.request_action_enum import RequestActionEnum
 from dtc.message_types.market_data_snapshot import MarketDataSnapshot
+from dtc.message_types.order_update import OrderUpdate
 from lib.symbol_util import get_symbol_id
 from lib.util import Util, CONSOLE_LOGGING
 
@@ -16,8 +17,8 @@ if __name__ == '__main__':
     # Symbols to monitor
     SYMBOL_LIST = [
         {_NAME: "ESH25_FUT_CME"},
-        {_NAME: "CLH25_FUT_NYMEX"},
-        {_NAME: "NQH25_FUT_NYMEX"}
+        #{_NAME: "CLH25_FUT_NYMEX"},
+        #{_NAME: "NQH25_FUT_CME"},
     ]
     # Generate symbol IDs
     for ix, symbol in enumerate(SYMBOL_LIST):
@@ -39,6 +40,9 @@ if __name__ == '__main__':
             if isinstance(message, MarketDataSnapshot):
                 marketDataSnapshot = MarketDataSnapshot()
                 # do something with market data
+                #marketDepthSnapshot = MarketDepthSnapshot()
+
+                #TODO: post this to redis, or stream this somewhere
 
 
     try:

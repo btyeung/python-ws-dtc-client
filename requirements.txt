@@ -14,3 +14,6 @@ pytest-asyncio
 requests
 httpx
 pytest-cov
+
+#websocket client
+asyncio

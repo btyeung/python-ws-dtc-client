@@ -3,6 +3,10 @@ export
 
 .PHONY: start-api start-fastapi install test
 
+#receiving snapshots of market data
+start-market-data:
+	LOG_DATA=1 LOG_LEVEL=DEBUG python ./marketdepth_client.py -n $${DTC_HOST} -p $${DTC_PORT} -q $${DTC_HISTORY_PORT} -l
+
 # Default Flask version
 start-api:
 	python example_client.py \
@@ -13,10 +17,6 @@ start-api:
 		-s
 #		-u $${DTC_USERNAME} \
 #		-x $${DTC_PASSWORD}
-
-# FastAPI version
-start-fastapi:
-	PYTHONPATH=. python rest/run_fastapi.py
 
 # Install dependencies
 install:
